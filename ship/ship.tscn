@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ship/ship.gd" type="Script" id=1]
 [ext_resource path="res://ship/thruster.tscn" type="PackedScene" id=2]
@@ -6,6 +6,30 @@
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="BoxShape" id=2]
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Area
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="ConvexPolygonShape" id=4]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
 
 [node name="ship" type="RigidBody"]
 mass = 10.0
@@ -32,6 +56,10 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 thruster_vector = Vector3( 1, 0, 0 )
 
+[node name="thruster_front" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+thruster_vector = Vector3( -0.5, 0, 0 )
+
 [node name="thruster_left1" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
 thruster_vector = Vector3( 0, 0, 0.5 )
@@ -47,3 +75,44 @@ thruster_vector = Vector3( 0, 0, -0.5 )
 [node name="thruster_right2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
 thruster_vector = Vector3( 0, 0, -0.5 )
+
+[node name="grabber" type="Area" parent="."]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.25, 0, 0.75 )
+script = SubResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance2" type="MeshInstance" parent="grabber"]
+mesh = SubResource( 3 )
+skeleton = NodePath("../../MeshInstance")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="grabber"]
+shape = SubResource( 4 )
+
+[node name="PinJoint" type="PinJoint" parent="grabber"]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -5, 0, 0 )
+
+[node name="grabber2" type="Area" parent="."]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.25, 0, -0.75 )
+script = SubResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance2" type="MeshInstance" parent="grabber2"]
+mesh = SubResource( 3 )
+skeleton = NodePath("../../MeshInstance")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="grabber2"]
+shape = SubResource( 4 )
+
+[node name="PinJoint" type="PinJoint" parent="grabber2"]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -5, 0, 0 )
+
+[connection signal="body_entered" from="grabber" to="." method="_on_grabber_body_entered"]
+[connection signal="body_exited" from="grabber" to="." method="_on_grabber_body_exited"]
+[connection signal="body_entered" from="grabber2" to="." method="_on_grabber_body_entered"]
+[connection signal="body_exited" from="grabber2" to="." method="_on_grabber_body_exited"]
