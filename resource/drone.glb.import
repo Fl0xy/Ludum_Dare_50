@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/energy_asteroid.glb-3f86f79eaff77389c44831c9228de19f.scn"
+path="res://.import/drone.glb-9e2eccb10d6dc86221cbcff7a851d21f.scn"
 
 [deps]
 
-source_file="res://resource/energy_asteroid.glb"
-dest_files=[ "res://.import/energy_asteroid.glb-3f86f79eaff77389c44831c9228de19f.scn" ]
+source_file="res://resource/drone.glb"
+dest_files=[ "res://.import/drone.glb-9e2eccb10d6dc86221cbcff7a851d21f.scn" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/energy_asteroid.glb-3f86f79eaff77389c44831c9228de19f.scn"
+path="res://.import/darkbrown_asteroid.glb-df5dbc7599a858b66900da3ea58bc6b6.scn"
 
 [deps]
 
-source_file="res://resource/energy_asteroid.glb"
-dest_files=[ "res://.import/energy_asteroid.glb-3f86f79eaff77389c44831c9228de19f.scn" ]
+source_file="res://resource/darkbrown_asteroid.glb"
+dest_files=[ "res://.import/darkbrown_asteroid.glb-df5dbc7599a858b66900da3ea58bc6b6.scn" ]
 
 [params]
 
@@ -16,10 +16,10 @@ nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
-nodes/use_legacy_names=true
-materials/location=0
+nodes/use_legacy_names=false
+materials/location=1
 materials/storage=0
-materials/keep_on_reimport=false
+materials/keep_on_reimport=true
 meshes/octahedral_compression=true
 meshes/compress=4286
 meshes/ensure_tangents=true

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/asteroid_drone.glb-87162b6025c2c1a7d23453afc376d6c7.scn"
+path="res://.import/sandstone_asteroid.glb-48d6dceedecff2fe591b0312480da37c.scn"
 
 [deps]
 
-source_file="res://resource/asteroid_drone.glb"
-dest_files=[ "res://.import/asteroid_drone.glb-87162b6025c2c1a7d23453afc376d6c7.scn" ]
+source_file="res://resource/sandstone_asteroid.glb"
+dest_files=[ "res://.import/sandstone_asteroid.glb-48d6dceedecff2fe591b0312480da37c.scn" ]
 
 [params]
 
@@ -18,7 +18,7 @@ nodes/custom_script=""
 nodes/storage=0
 nodes/use_legacy_names=false
 materials/location=1
-materials/storage=1
+materials/storage=0
 materials/keep_on_reimport=true
 meshes/octahedral_compression=true
 meshes/compress=4286
