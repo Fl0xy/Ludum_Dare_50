@@ -13,3 +13,4 @@ data_*/
 
 # Blender Backup files gedöns
 .blend1
+blender_files/*.import
