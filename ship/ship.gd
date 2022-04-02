@@ -23,16 +23,16 @@ func _physics_process(delta):
 		apply_impulse(basis.xform($thruster_left2.translation), basis.xform($thruster_left2.thruster_vector))
 	if Input.is_action_just_pressed("ui_accept"):
 		if !connected and connected_asteroid != null:
-			$grabber/PinJoint.set_node_a(self.get_path())
-			$grabber2/PinJoint.set_node_a(self.get_path())
-			$grabber/PinJoint.set_node_b(connected_asteroid.get_path())
-			$grabber2/PinJoint.set_node_b(connected_asteroid.get_path())
+			$PinJoint.set_node_a(self.get_path())
+			$PinJoint2.set_node_a(self.get_path())
+			$PinJoint.set_node_b(connected_asteroid.get_path())
+			$PinJoint2.set_node_b(connected_asteroid.get_path())
 			connected = true;
 		elif connected:
-			$grabber/PinJoint.set_node_a(NodePath(""))
-			$grabber2/PinJoint.set_node_a(NodePath(""))
-			$grabber/PinJoint.set_node_b(NodePath(""))
-			$grabber2/PinJoint.set_node_b(NodePath(""))
+			$PinJoint.set_node_a(NodePath(""))
+			$PinJoint2.set_node_a(NodePath(""))
+			$PinJoint.set_node_b(NodePath(""))
+			$PinJoint2.set_node_b(NodePath(""))
 			connected = false;
 
 
