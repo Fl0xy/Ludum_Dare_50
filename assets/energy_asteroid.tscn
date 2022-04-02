@@ -10,6 +10,8 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=2]
+flags = 3
+flags = 3
 image = SubResource( 7 )
 size = Vector2( 64, 64 )
 
