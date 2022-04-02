@@ -34,7 +34,7 @@ func spawn():
 				asteroid = assets[x].instance()
 				break
 			else:
-				random_type - ratios[i]
+				random_type -= ratios[x]
 		if asteroid == null:
 			printerr("this should not happen")
 			return
