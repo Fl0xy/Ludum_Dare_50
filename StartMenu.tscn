@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://StartMenu.gd" type="Script" id=1]
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Play" type="Button" parent="."]
+margin_left = 288.0
+margin_top = 97.0
+margin_right = 331.0
+margin_bottom = 117.0
+text = "PLAY"
+
+[node name="Exit" type="Button" parent="."]
+margin_left = 127.0
+margin_top = 267.0
+margin_right = 166.0
+margin_bottom = 287.0
+text = "EXIT"
+
+[node name="Fullscreen" type="Button" parent="."]
+margin_left = 456.0
+margin_top = 268.0
+margin_right = 546.0
+margin_bottom = 288.0
+text = "FULLSCREEN"
+
+[node name="ScreenBigger" type="Button" parent="."]
+margin_left = 498.0
+margin_top = 298.0
+margin_right = 610.0
+margin_bottom = 318.0
+text = "SCREEN BIGGER"
+
+[node name="ScreenSmaller" type="Button" parent="."]
+margin_left = 370.0
+margin_top = 298.0
+margin_right = 490.0
+margin_bottom = 318.0
+text = "SCREEN SMALLER"
+
+[node name="Control" type="Control" parent="."]
+margin_left = 295.0
+margin_top = 148.0
+margin_right = 335.0
+margin_bottom = 188.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VolumeUp" type="Button" parent="Control"]
+margin_left = -75.0
+margin_top = 20.0
+margin_right = 14.0
+margin_bottom = 40.0
+text = "VOLUME UP"
+
+[node name="VolumeDown" type="Button" parent="Control"]
+margin_left = -76.0
+margin_top = 44.0
+margin_right = 39.0
+margin_bottom = 64.0
+text = "VOLUME DOWN"
+
+[node name="VolumeMuteToggle" type="Button" parent="Control"]
+margin_left = 45.0
+margin_top = 30.0
+margin_right = 93.0
+margin_bottom = 50.0
+text = "MUTE"
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="ScreenBigger" to="." method="_on_ScreenBigger_pressed"]
+[connection signal="pressed" from="ScreenSmaller" to="." method="_on_ScreenSmaller_pressed"]
+[connection signal="pressed" from="Control/VolumeUp" to="." method="_on_VolumeUp_pressed"]
+[connection signal="pressed" from="Control/VolumeDown" to="." method="_on_VolumeDown_pressed"]
+[connection signal="pressed" from="Control/VolumeMuteToggle" to="." method="_on_VolumeMuteToggle_pressed"]

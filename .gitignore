@@ -10,3 +10,6 @@ data_*/
 
 # Dolphin file manager
 .directory
+
+# Blender Backup files gedöns
+.blend1
