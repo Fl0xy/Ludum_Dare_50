@@ -2,7 +2,6 @@ tool
 extends Node2D
 
 const width = 200
-const height = 200
 
 export(float) var max_civ_energy: float = 100
 export(float) var civ_energy: float = 50 setget set_civ_energy
