@@ -43,15 +43,15 @@ func set_backhole(blackhole):
 func start_game():
 	total_time = 0
 	battery = battery_max / 2
-	start_time = OS.get_time()
+	start_time = OS.get_unix_time()
 	running = true
 
 func pause_game():
-	total_time += OS.get_time() - start_time
+	total_time += OS.get_unix_time() - start_time
 	running = false
 	
 func unpause_game():
-	start_time = OS.get_time()
+	start_time = OS.get_unix_time()
 	running = true
 
 func end_game():
