@@ -13,7 +13,6 @@ anchor_bottom = 1.0
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 640, 360 )
-keep_3d_linear = true
 render_target_v_flip = true
 
 [node name="main3d" parent="Viewport" instance=ExtResource( 1 )]
