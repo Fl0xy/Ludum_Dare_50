@@ -4,12 +4,12 @@ const blackhole_shrink = 1
 const blackhole_max_mass: float = 1000.0
 const blackhole_min_mass: float = 100.0
 
-var blackhole_mass: float setget set_blackhole_mass
+var blackhole_mass: float = 150 setget set_blackhole_mass
 var blackhole_power: float
 var blackhole_node: Node
 
 const battery_max: float = 10000.0
-var battery: float = 5000 setget set_battery
+var battery: float = 100
 
 var civ_power: float = 300
 
@@ -31,24 +31,27 @@ func _process(delta):
 		
 	battery -= civ_power * delta
 	battery += blackhole_power * delta
+	
+	
 
 func set_backhole(blackhole):
 	blackhole_node = blackhole
-	blackhole_mass = blackhole_max_mass / blackhole.blackhole_max_radius * blackhole.blackhole_radius
+	set_blackhole_mass(blackhole_mass)
 	blackhole.connect("asteroid_entered", self, "add_mass_to_blackhole")
+	blackhole.connect("destoryed", self, "end_game")
 
 func start_game():
 	total_time = 0
 	battery = battery_max / 2
-	start_time = OS.get_time()
+	start_time = OS.get_unix_time()
 	running = true
 
 func pause_game():
-	total_time += OS.get_time() - start_time
+	total_time += OS.get_unix_time() - start_time
 	running = false
 	
 func unpause_game():
-	start_time = OS.get_time()
+	start_time = OS.get_unix_time()
 	running = true
 
 func end_game():
@@ -62,6 +65,3 @@ func set_blackhole_mass(value: float):
 	blackhole_power = blackhole_max_mass - blackhole_mass
 	if blackhole_node != null:
 		blackhole_node.blackhole_radius = blackhole_node.blackhole_max_radius / blackhole_max_mass * blackhole_mass
-
-func set_battery(value: float):
-	battery = value
