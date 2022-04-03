@@ -9,11 +9,13 @@ export(float) var civ_energy: float = 50 setget set_civ_energy
 export(float) var max_blackhole_size: float = 28
 export(float) var blackhole_size: float = 19 setget set_blackhole_size
 
-
-
 func _ready():
 	set_civ_energy(civ_energy)
 	set_blackhole_size(blackhole_size)
+	
+func _process(delta):
+	if (Global.blackhole_node != null):
+		self.blackhole_size = Global.blackhole_node.blackhole_radius
 
 
 func set_civ_energy(value: float):
