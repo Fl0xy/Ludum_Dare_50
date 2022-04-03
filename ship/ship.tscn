@@ -285,7 +285,7 @@ anims/thruster_front_running = SubResource( 20 )
 
 [node name="thruster_back" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9445, 0, 0 )
-thruster_vector = Vector3( 1, 0, 0 )
+thruster_vector = Vector3( 2, 0, 0 )
 
 [node name="exhaust" type="MeshInstance" parent="thruster_back"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.473911, -0.0053401, 0 )
@@ -324,7 +324,7 @@ light_cull_mask = 4294966783
 shadow_enabled = true
 
 [node name="exhaust2" type="MeshInstance" parent="thruster_front/exhaust"]
-transform = Transform( 0.25, -1.09279e-08, -4.77672e-16, 0, -1.09278e-08, 0.25, -1.09279e-08, -0.25, -1.09278e-08, -6.72958e-08, -1.53954, -1.53954 )
+transform = Transform( 0.25, -1.09279e-08, -4.77674e-16, 0, -1.09278e-08, 0.25, -1.09279e-08, -0.25, -1.09278e-08, -6.72958e-08, -1.53954, -1.53954 )
 layers = 512
 mesh = SubResource( 14 )
 skeleton = NodePath("../../..")

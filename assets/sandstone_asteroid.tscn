@@ -45,9 +45,12 @@ points = PoolVector3Array( 0.580024, 0.348664, 0.517855, -0.0282965, -0.259462, 
 [node name="sandstone_asteroid" type="RigidBody"]
 collision_layer = 9
 collision_mask = 9
-mass = 13.0
+mass = 15.0
 axis_lock_linear_y = true
 script = ExtResource( 1 )
+max_size = 20.0
+max_rotate = 0.5
+energy_mass_multiplyer = 0.15
 
 [node name="Icosphere" type="MeshInstance" parent="."]
 mesh = SubResource( 4 )
