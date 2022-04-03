@@ -1,11 +1,9 @@
 extends Node
 
-const blackhole_shrink = 0.2
 const blackhole_max_mass: float = 1000.0
-const blackhole_min_mass: float = 100.0
+const blackhole_min_mass: float = 50.0
 
-var blackhole_mass: float = 150 setget set_blackhole_mass
-var blackhole_power: float
+var blackhole_mass: float = 200 setget set_blackhole_mass
 var blackhole_node: Node
 
 const battery_max: float = 100000.0
@@ -27,14 +25,17 @@ func _ready():
 func _process(delta):
 	if not running:
 		return
-	self.blackhole_mass -= blackhole_shrink * delta
-	debug_mass_lose -= blackhole_shrink * delta
+	
+	var energy = (blackhole_max_mass - blackhole_mass) * 0.001 * delta
+	
+	self.blackhole_mass -= energy
+	debug_mass_lose -= energy
 	
 	if blackhole_mass < blackhole_min_mass:
 		emit_signal("destroy_blackhole")
 		
 	battery -= civ_power * delta
-	battery += (blackhole_power * 0.5) * delta
+	battery += energy
 	
 	
 
@@ -68,6 +69,5 @@ func add_mass_to_blackhole(asteroid: Asteroid):
 	
 func set_blackhole_mass(value: float):
 	blackhole_mass = value
-	blackhole_power = blackhole_max_mass - blackhole_mass
 	if blackhole_node != null:
 		blackhole_node.blackhole_radius = blackhole_node.blackhole_max_radius / blackhole_max_mass * blackhole_mass
