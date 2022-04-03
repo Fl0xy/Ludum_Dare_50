@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://main3d.tscn" type="PackedScene" id=1]
-[ext_resource path="res://white_pixel.png.png" type="Texture" id=2]
+[ext_resource path="res://gameui/battery_bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameui/blackhole_bar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ViewportTexture" id=1]
@@ -21,31 +21,10 @@ render_target_v_flip = true
 texture = SubResource( 1 )
 centered = false
 
-[node name="battery" type="Node2D" parent="."]
-position = Vector2( 10, 43 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="border" type="Sprite" parent="battery"]
-modulate = Color( 0.521569, 0.521569, 0.521569, 1 )
-position = Vector2( -3, -3 )
-scale = Vector2( 106, 26 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="backgound" type="Sprite" parent="battery"]
-scale = Vector2( 100, 20 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="bar" type="Sprite" parent="battery"]
-modulate = Color( 0, 1, 0.0862745, 1 )
-scale = Vector2( 50, 20 )
-texture = ExtResource( 2 )
-centered = false
-
 [node name="blackhole_bar" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8, 8 )
 civ_energy = 25.0
 blackhole_size = 20.0
+
+[node name="battery_bar" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 43 )
