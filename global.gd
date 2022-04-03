@@ -1,6 +1,6 @@
 extends Node
 
-const blackhole_shrink = 1
+const blackhole_shrink = 0.2
 const blackhole_max_mass: float = 1000.0
 const blackhole_min_mass: float = 100.0
 
@@ -8,7 +8,7 @@ var blackhole_mass: float = 150 setget set_blackhole_mass
 var blackhole_power: float
 var blackhole_node: Node
 
-const battery_max: float = 10000.0
+const battery_max: float = 100000.0
 var battery: float = 100
 
 var civ_power: float = 300
@@ -16,6 +16,8 @@ var civ_power: float = 300
 var running: bool = false
 var total_time
 var start_time
+
+var debug_mass_lose: float = 0
 
 signal destroy_blackhole
 
@@ -26,11 +28,13 @@ func _process(delta):
 	if not running:
 		return
 	self.blackhole_mass -= blackhole_shrink * delta
+	debug_mass_lose -= blackhole_shrink * delta
+	
 	if blackhole_mass < blackhole_min_mass:
 		emit_signal("destroy_blackhole")
 		
 	battery -= civ_power * delta
-	battery += blackhole_power * delta
+	battery += (blackhole_power * 0.5) * delta
 	
 	
 
@@ -42,7 +46,6 @@ func set_backhole(blackhole):
 
 func start_game():
 	total_time = 0
-	battery = battery_max / 2
 	start_time = OS.get_unix_time()
 	running = true
 
@@ -59,6 +62,8 @@ func end_game():
 	
 func add_mass_to_blackhole(asteroid: Asteroid):
 	self.blackhole_mass += asteroid.mass
+	print("lost since last: " + str(debug_mass_lose) + "; Added just now: " + str(asteroid.mass) + " => " + str(asteroid.mass + debug_mass_lose))
+	debug_mass_lose = 0
 	
 func set_blackhole_mass(value: float):
 	blackhole_mass = value
