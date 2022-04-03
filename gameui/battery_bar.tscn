@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://white_pixel.png.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/beef'd custom 5.tres" type="DynamicFont" id=2]
+
+[node name="battery_bar" type="Node2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="border" type="Sprite" parent="."]
+modulate = Color( 0.521569, 0.521569, 0.521569, 1 )
+position = Vector2( -3, -3 )
+scale = Vector2( 106, 26 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="backgound" type="Sprite" parent="."]
+scale = Vector2( 100, 20 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="bar" type="Sprite" parent="."]
+modulate = Color( 0, 1, 0.0862745, 1 )
+scale = Vector2( 50, 20 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="FTL" type="Node2D" parent="."]
+
+[node name="backgound" type="Sprite" parent="FTL"]
+modulate = Color( 0.447059, 0.952941, 0.215686, 1 )
+position = Vector2( 120, 3 )
+scale = Vector2( 40, 16 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="RichTextLabel" type="Label" parent="FTL"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 120.0
+margin_right = 150.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 2 )
+text = "FTL"
+align = 1
+valign = 1
+
+[node name="disable" type="Sprite" parent="FTL"]
+modulate = Color( 0.0156863, 0.0156863, 0.0156863, 0.890196 )
+position = Vector2( 120, 3 )
+scale = Vector2( 40, 16 )
+texture = ExtResource( 1 )
+centered = false

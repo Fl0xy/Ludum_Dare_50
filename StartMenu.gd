@@ -1,6 +1,6 @@
 extends Node2D
 
-var gamescene : PackedScene = load("res://main3d.tscn")
+var gamescene : PackedScene = load("res://gameUI.tscn")
 
 func _on_Play_pressed():
 	var game = gamescene.instance()
