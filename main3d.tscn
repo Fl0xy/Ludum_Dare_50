@@ -42,9 +42,9 @@ material/0 = null
 
 [node name="asteroid_placer" parent="." instance=ExtResource( 4 )]
 root_path = NodePath("..")
-max_distance = 100.0
+max_distance = 45.0
 min_distance = 40.0
-count = 100
+count = 1
 assets = [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 6 ) ]
 ratios = [ 20.0, 70.0, 10.0 ]
 

@@ -1,3 +1,4 @@
+class_name Asteroid
 extends RigidBody
 
 export(float) var min_size: float = 2
@@ -11,3 +12,4 @@ func _ready():
 	$CollisionShape.scale = sizev
 	self.angular_velocity = Vector3(0, rand_range(0, max_rotate), 0)
 	
+func get_class(): return "Asteroid"

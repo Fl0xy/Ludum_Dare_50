@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://base/base.gd" type="Script" id=1]
+
+[sub_resource type="SphereShape" id=4]
+radius = 3.0
 
 [sub_resource type="SphereShape" id=2]
 radius = 19.0
@@ -20,6 +23,11 @@ inner_radius = 30.0
 outer_radius = 35.0
 sides = 64
 
+[node name="despawner" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="despawner"]
+shape = SubResource( 4 )
+
 [node name="blackhole" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="blackhole"]
@@ -30,12 +38,15 @@ mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
 
-[node name="Area" type="Area" parent="."]
+[node name="gravitypull" type="Area" parent="."]
 collision_layer = 8
 collision_mask = 8
 space_override = 1
 gravity_point = true
 gravity = 5.0
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape" type="CollisionShape" parent="gravitypull"]
 shape = SubResource( 3 )
+
+[connection signal="body_entered" from="despawner" to="." method="_on_despawner_body_entered"]
+[connection signal="body_entered" from="blackhole" to="." method="_on_blackhole_body_entered"]
