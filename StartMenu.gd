@@ -5,6 +5,7 @@ var gamescene : PackedScene = load("res://gameUI.tscn")
 func _on_Play_pressed():
 	var game = gamescene.instance()
 	get_tree().root.add_child(game)
+	Global.start_game()
 	queue_free()
 
 
