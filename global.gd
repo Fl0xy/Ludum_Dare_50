@@ -61,8 +61,9 @@ func end_game():
 	pause_game()
 	
 func add_mass_to_blackhole(asteroid: Asteroid):
-	self.blackhole_mass += asteroid.mass
-	print("lost since last: " + str(debug_mass_lose) + "; Added just now: " + str(asteroid.mass) + " => " + str(asteroid.mass + debug_mass_lose))
+	var mass = asteroid.mass * asteroid.energy_mass_multiplyer
+	self.blackhole_mass += mass
+	print("lost since last: " + str(debug_mass_lose) + "; Added just now: " + str(mass) + " => " + str(mass + debug_mass_lose))
 	debug_mass_lose = 0
 	
 func set_blackhole_mass(value: float):

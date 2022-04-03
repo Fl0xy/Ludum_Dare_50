@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ship/ship.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/energy_asteroid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://asteroid_placer.gd" type="Script" id=2]
 [ext_resource path="res://main3d.gd" type="Script" id=3]
-[ext_resource path="res://asteroid_placer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/energy_asteroid.tscn" type="PackedScene" id=4]
 [ext_resource path="res://base/base.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/sandstone_asteroid.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/darkbrown_asteroid_big.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/darkbrown_asteroid.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CubeMesh" id=1]
@@ -40,17 +40,18 @@ visible = false
 mesh = SubResource( 1 )
 material/0 = null
 
-[node name="asteroid_placer" parent="." instance=ExtResource( 4 )]
-root_path = NodePath("..")
-max_distance = 100.0
-min_distance = 45.0
-count = 200
-assets = [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 6 ) ]
-ratios = [ 20.0, 70.0, 10.0 ]
-
 [node name="base" parent="." instance=ExtResource( 5 )]
 blackhole_min_radius = 10.0
 blackhole_max_radius = 28.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
+
+[node name="asteroid_placer" type="Node" parent="."]
+script = ExtResource( 2 )
+root_path = NodePath("..")
+max_distance = 60.0
+min_distance = 200.0
+count = 300
+assets = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ) ]
+ratios = [ 10.0, 70.0, 20.0 ]
