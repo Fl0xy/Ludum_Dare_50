@@ -12,5 +12,5 @@ data_*/
 .directory
 
 # Blender Backup files gedöns
-.blend1
+*.blend1
 blender_files/*.import
