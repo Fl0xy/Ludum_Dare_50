@@ -23,8 +23,8 @@ centered = false
 
 [node name="blackhole_bar" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8, 8 )
-civ_energy = 25.0
 blackhole_size = 20.0
 
 [node name="battery_bar" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8, 43 )
+battery = 50.0
