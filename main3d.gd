@@ -9,5 +9,5 @@ func spawn_helper():
 	
 func _physics_process(delta):
 	var camera_pos: Vector3 = $ship.translation
-	camera_pos.y += 25
+	camera_pos.y = $Camera.translation.y
 	$Camera.translation = camera_pos
