@@ -96,3 +96,8 @@ func set_blackhole_mass(value: float):
 	blackhole_mass = value
 	if blackhole_node != null:
 		blackhole_node.blackhole_radius = blackhole_node.blackhole_max_radius / blackhole_max_mass * blackhole_mass
+		
+		
+func _input(event):
+	if event.is_action("quit"):
+		get_tree().quit()
