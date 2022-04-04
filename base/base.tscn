@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://base/base.gd" type="Script" id=1]
 [ext_resource path="res://assets/black_hole.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resource/station.glb" type="PackedScene" id=3]
+[ext_resource path="res://assets/black_hole/BlackHoleParticles.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SphereShape" id=4]
 radius = 3.0
@@ -16,6 +17,9 @@ height = 38.0
 
 [sub_resource type="SphereShape" id=3]
 radius = 40.0
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("Viewport")
 
 [node name="base" type="Spatial"]
 script = ExtResource( 1 )
@@ -57,6 +61,16 @@ shape = SubResource( 3 )
 
 [node name="station" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.61156, 0 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 512, 512 )
+transparent_bg = true
+
+[node name="BlackHoleParticles" parent="Viewport" instance=ExtResource( 4 )]
+
+[node name="AccretionDisk" type="Sprite3D" parent="."]
+transform = Transform( 21.1324, 0, 0, 0, -4.37114e-07, -1, 0, 21.1324, -9.23725e-08, 0, -1.54865, 0 )
+texture = SubResource( 5 )
 
 [connection signal="body_entered" from="despawner" to="." method="_on_despawner_body_entered"]
 [connection signal="body_entered" from="blackhole" to="." method="_on_blackhole_body_entered"]

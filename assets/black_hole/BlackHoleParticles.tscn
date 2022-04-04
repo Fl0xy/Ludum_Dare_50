@@ -1,0 +1,176 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.121212, 0.739394, 0.884848, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.914062, 0.621695, 0.117828, 1, 0.570801, 0.195514, 0.0824986, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.957447, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+trail_divisor = 16
+trail_size_modifier = SubResource( 5 )
+emission_shape = 5
+emission_ring_radius = 60.0
+emission_ring_inner_radius = 40.0
+emission_ring_height = 0.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 0.2
+orbit_velocity = 0.2
+orbit_velocity_random = 0.5
+radial_accel = -130.0
+damping = 100.0
+color_ramp = SubResource( 3 )
+
+[node name="BlackHoleParticles" type="Node2D"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D3" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D4" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D5" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D6" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D7" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D8" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D9" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D10" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D11" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D12" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D13" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D14" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D15" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D16" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D17" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D18" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D19" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
+
+[node name="Particles2D20" type="Particles2D" parent="."]
+position = Vector2( 256, 256 )
+scale = Vector2( 2.56, 2.56 )
+amount = 128
+visibility_rect = Rect2( -100.065, -100, 200, 200 )
+process_material = SubResource( 1 )
