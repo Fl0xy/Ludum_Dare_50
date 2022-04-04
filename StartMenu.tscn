@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://resource/toggle_fullscreen_enter.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://resource/tutorial_postit_note_power_and_blackhole.png" type="Texture" id=14]
 [ext_resource path="res://resource/tutorial_postit_note_grabber.png" type="Texture" id=15]
 [ext_resource path="res://resource/tutorial_postit_note_movement.png" type="Texture" id=16]
+[ext_resource path="res://resource/polaroid.png" type="Texture" id=17]
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -72,6 +73,11 @@ margin_right = 530.0
 margin_bottom = 96.0
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 5 )
+
+[node name="Polaroid" type="Sprite" parent="."]
+position = Vector2( 329, 137 )
+rotation = -0.719709
+texture = ExtResource( 17 )
 
 [node name="TutorialPostitNoteGrabber" type="Sprite" parent="."]
 position = Vector2( 125.5, 277 )
