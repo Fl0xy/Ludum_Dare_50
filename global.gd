@@ -8,7 +8,10 @@ var camera
 const blackhole_max_mass: float = 1000.0
 const blackhole_min_mass: float = 50.0
 const blackhole_start_mass: float = 500.0
+const blackhole_min_power: float = 1.5
+const blackhole_max_power: float = 4.0
 
+var blackhole_energy: float
 var blackhole_mass: float setget set_blackhole_mass
 var blackhole_node: Node
 var blackhole_factor: float setget set_blackhole_factor
@@ -16,13 +19,14 @@ var blackhole_factor: float setget set_blackhole_factor
 const battery_max: float = 2000.0
 var battery: float = 200
 
-var civ_power: float = 0
-
 var running: bool = false
 var total_time
 var start_time
 
-var energy: float # debug todo remove
+var to_small_warining_given: bool = false
+var to_big_warining_given: bool = false
+var back_to_base_given: bool = false
+
 var debug_mass_lose: float = 0
 
 signal destroy_blackhole
@@ -34,7 +38,8 @@ func _process(delta):
 	if not running:
 		return
 	
-	energy = clamp((blackhole_max_mass - blackhole_mass) * 0.005, 1.5, 4) * delta
+	blackhole_energy = clamp((blackhole_max_mass - blackhole_mass) * 0.005, blackhole_min_power, blackhole_max_power)
+	var energy = blackhole_energy * delta
 	
 	self.blackhole_mass -= energy
 	debug_mass_lose -= energy
@@ -43,10 +48,12 @@ func _process(delta):
 		emit_signal("destroy_blackhole")
 		running = false
 		
-	battery -= civ_power * delta
 	battery += energy
 	
 	if battery >= battery_max:
+		if not back_to_base_given:
+			display_notification("The Battery is full \n good job now get your ass back to base")
+			back_to_base_given = true
 		if Input.is_action_just_pressed("ui_jump"):
 			print("jump!!!!")
 			gamescene.queue_free()
@@ -99,8 +106,12 @@ func set_blackhole_mass(value: float):
 	self.blackhole_factor = clamp((blackhole_mass - blackhole_min_mass) / (blackhole_max_mass- blackhole_min_mass),0,1)
 		
 func set_blackhole_factor(value: float):
-	if blackhole_factor > 0.2 && value < 0.2:
-		display_notification("The Blackhole is getting to small\nFeed it or we are dommed")
+	if blackhole_factor > 0.2 && value < 0.2 && not to_small_warining_given:
+		display_notification("The blackhole is getting to small Feed it or we are dommed")
+		to_small_warining_given = true
+	if blackhole_factor < 0.8 && value > 0.8 && not to_big_warining_given:
+		display_notification("The blackhole is getting to large \n Be careful or the station gets destoryed")
+		to_big_warining_given = true
 	blackhole_factor = value
 		
 		

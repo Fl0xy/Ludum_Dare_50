@@ -13,5 +13,3 @@ func set_battery(value: float):
 	battery = value
 	var scalex = width * battery
 	$bar.scale = Vector2(scalex, 20)
-	
-	$FTL/disable.visible = !(battery >= 1)
