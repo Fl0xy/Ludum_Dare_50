@@ -91,7 +91,7 @@ func close_level():
 func add_mass_to_blackhole(asteroid: Asteroid):
 	var mass = asteroid.mass * asteroid.energy_mass_multiplyer
 	self.blackhole_mass = clamp(blackhole_mass + mass, 0, blackhole_max_mass-1)  
-	print("lost since last: " + str(debug_mass_lose) + "; Added just now: " + str(mass) + " => " + str(mass + debug_mass_lose))
+	print("lost since last: " + str(debug_mass_lose) + "; Added just now: " + str(mass) + " [" + str(asteroid.mass) +  "x" + str(asteroid.energy_mass_multiplyer)  + "] => " + str(mass + debug_mass_lose))
 	debug_mass_lose = 0
 	
 func set_blackhole_mass(value: float):
