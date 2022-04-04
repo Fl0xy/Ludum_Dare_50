@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ELECTRIC MODEM, Noise, Connecting, Broken Radio, Interference, Buzz.wav-ac970ed20aae0b00b67f6e0dd7f96394.sample"
+
+[deps]
+
+source_file="res://resource/sounds/raw/ELECTRIC MODEM, Noise, Connecting, Broken Radio, Interference, Buzz.wav"
+dest_files=[ "res://.import/ELECTRIC MODEM, Noise, Connecting, Broken Radio, Interference, Buzz.wav-ac970ed20aae0b00b67f6e0dd7f96394.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

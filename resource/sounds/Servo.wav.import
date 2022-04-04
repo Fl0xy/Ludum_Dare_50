@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Servo.wav-3a80250f7ae7ddfde9b958e9a3a4d95c.sample"
+
+[deps]
+
+source_file="res://resource/sounds/Servo.wav"
+dest_files=[ "res://.import/Servo.wav-3a80250f7ae7ddfde9b958e9a3a4d95c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
