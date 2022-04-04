@@ -6,16 +6,16 @@ var gamescene
 
 const blackhole_max_mass: float = 1000.0
 const blackhole_min_mass: float = 50.0
-const blackhole_start_mass: float = 200.0
+const blackhole_start_mass: float = 500.0
 
 var blackhole_mass: float setget set_blackhole_mass
 var blackhole_node: Node
 var energy: float # debug todo remove
 
-const battery_max: float = 100000.0
-var battery: float = 100
+const battery_max: float = 2000.0
+var battery: float = 1950
 
-var civ_power: float = 300
+var civ_power: float = 0
 
 var running: bool = false
 var total_time
@@ -32,7 +32,7 @@ func _process(delta):
 	if not running:
 		return
 	
-	energy = clamp((blackhole_max_mass - blackhole_mass) * 0.005, 2, 4) * delta
+	energy = clamp((blackhole_max_mass - blackhole_mass) * 0.005, 1.5, 4) * delta
 	
 	self.blackhole_mass -= energy
 	debug_mass_lose -= energy
@@ -43,6 +43,13 @@ func _process(delta):
 	battery -= civ_power * delta
 	battery += energy
 	
+	if battery >= battery_max:
+		if Input.is_action_just_pressed("ui_jump"):
+			print("jump!!!!")
+			gamescene.queue_free()
+			start_level()
+			
+	
 	
 
 func set_backhole(blackhole):
@@ -52,11 +59,14 @@ func set_backhole(blackhole):
 	blackhole.connect("destoryed", self, "end_game")
 
 func start_game():
-	gamescene = gamePackedscene.instance()
-	get_tree().root.add_child(gamescene)
+	start_level()
 	total_time = 0
 	start_time = OS.get_unix_time()
 	running = true
+	
+func start_level():
+	gamescene = gamePackedscene.instance()
+	get_tree().root.add_child(gamescene)
 
 func pause_game():
 	total_time += OS.get_unix_time() - start_time
@@ -70,6 +80,10 @@ func end_game():
 	pause_game()
 	gamescene.queue_free()
 	get_tree().root.add_child(endPackedScene.instance())
+	
+func close_level():
+	blackhole_node = null
+	gamescene.queue_free()
 	
 	
 func add_mass_to_blackhole(asteroid: Asteroid):
