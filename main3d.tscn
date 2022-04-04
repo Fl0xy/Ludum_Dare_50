@@ -41,7 +41,7 @@ glow_levels/7 = true
 script = ExtResource( 3 )
 
 [node name="ship" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.6453, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.7024, 0, -13.0913 )
 angular_damp = 1.0
 
 [node name="Camera" type="Camera" parent="."]
