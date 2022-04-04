@@ -7,6 +7,7 @@
 [ext_resource path="res://base/base.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/darkbrown_asteroid_big.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/darkbrown_asteroid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://resource/sounds/background.ogg" type="AudioStream" id=8]
 
 [sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 2
@@ -46,6 +47,7 @@ angular_damp = 1.0
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 30.9542, 0 )
 projection = 1
+current = true
 size = 50.0
 __meta__ = {
 "_edit_lock_": true
@@ -82,3 +84,8 @@ min_distance = 200.0
 count = 300
 assets = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ) ]
 ratios = [ 10.0, 70.0, 20.0 ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -20.0
+autoplay = true

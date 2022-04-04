@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SPDR - Space Chatter 4 - Radio, Mission Control.wav-77d24b4b19c3bf523817c567e853d3a1.sample"
+
+[deps]
+
+source_file="res://resource/sounds/raw/SPDR - Space Chatter 4 - Radio, Mission Control.wav"
+dest_files=[ "res://.import/SPDR - Space Chatter 4 - Radio, Mission Control.wav-77d24b4b19c3bf523817c567e853d3a1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

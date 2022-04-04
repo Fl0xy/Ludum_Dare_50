@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/G4F SFX09 Design - METAL - Spaceship Acceleration Deceleration.wav-8006ea06f9b56260ca837896c4539585.sample"
+
+[deps]
+
+source_file="res://resource/sounds/raw/G4F SFX09 Design - METAL - Spaceship Acceleration Deceleration.wav"
+dest_files=[ "res://.import/G4F SFX09 Design - METAL - Spaceship Acceleration Deceleration.wav-8006ea06f9b56260ca837896c4539585.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
