@@ -4,9 +4,21 @@ extends Spatial
 export(float) var blackhole_min_radius: float = 7
 export(float) var blackhole_max_radius: float = 25
 export(float) var blackhole_radius: float setget set_blackhol_size
+export(bool) var destorying: bool = false
 
 signal asteroid_entered
 signal destoryed
+
+func _process(delta):
+	if destorying:
+		$blackhole/black_hole.translation.x = rand_range(-1, 1)
+		$blackhole/black_hole.translation.z = rand_range(-1, 1)
+	else:
+		$blackhole/black_hole.rotate(Vector3(0,1,0), 0.5*delta)
+		$station.rotate(Vector3(0,1,0), -0.01*delta)
+	
+		self.blackhole_radius = blackhole_min_radius + Global.blackhole_factor * (blackhole_max_radius - blackhole_min_radius)
+	
 
 
 func _ready():
@@ -36,4 +48,9 @@ func _on_blackhole_body_entered(body):
 
 func destory():
 	print("kaboom !!!!!")
+	destorying = true
+	$exploooooosion.play()
+	$AnimationPlayer.play("explosion")
+
+func _on_exploooooosion_finished():
 	emit_signal("destoryed")

@@ -15,7 +15,8 @@ func _process(delta):
 		old_vis = self.visible
 		
 func set_audio(value: NodePath):
-	audio = value
-	audio_node = get_node(audio)
+	if value != "":
+		audio = value
+		audio_node = get_node(audio)
 		
 

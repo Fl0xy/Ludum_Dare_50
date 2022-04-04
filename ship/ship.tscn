@@ -320,7 +320,7 @@ stream = ExtResource( 4 )
 volume_db = -15.0
 
 [node name="Listener" type="Listener" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3508, 0, 0 )
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 1.3508, 0, 0 )
 current = true
 
 [node name="AnimSideThruster" type="AnimationPlayer" parent="."]
