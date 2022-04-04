@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://resource/toggle_fullscreen_enter.png" type="Texture" id=2]
@@ -12,6 +12,10 @@
 [ext_resource path="res://resource/button_decrease_screen_size_down.png" type="Texture" id=10]
 [ext_resource path="res://resource/toggle_fullscreen_exit.png" type="Texture" id=11]
 [ext_resource path="res://white_pixel.png.png" type="Texture" id=12]
+[ext_resource path="res://resource/tutorial_postit_note_turbo.png" type="Texture" id=13]
+[ext_resource path="res://resource/tutorial_postit_note_power_and_blackhole.png" type="Texture" id=14]
+[ext_resource path="res://resource/tutorial_postit_note_grabber.png" type="Texture" id=15]
+[ext_resource path="res://resource/tutorial_postit_note_movement.png" type="Texture" id=16]
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,10 +30,10 @@ __meta__ = {
 }
 
 [node name="ToggleFullscreen" type="TextureButton" parent="."]
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 109.0
-margin_bottom = 96.0
+margin_left = 531.0
+margin_top = 97.0
+margin_right = 600.0
+margin_bottom = 153.0
 toggle_mode = true
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 11 )
@@ -62,12 +66,28 @@ texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 3 )
 
 [node name="PlayGame" type="TextureButton" parent="."]
-margin_left = 125.0
+margin_left = 398.0
 margin_top = 40.0
-margin_right = 257.0
+margin_right = 530.0
 margin_bottom = 96.0
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 5 )
+
+[node name="TutorialPostitNoteGrabber" type="Sprite" parent="."]
+position = Vector2( 125.5, 277 )
+texture = ExtResource( 15 )
+
+[node name="TutorialPostitNoteMovement" type="Sprite" parent="."]
+position = Vector2( 524, 266 )
+texture = ExtResource( 16 )
+
+[node name="TutorialPostitNoteTurbo" type="Sprite" parent="."]
+position = Vector2( 323.5, 276 )
+texture = ExtResource( 13 )
+
+[node name="TutorialPostitNotePowerAndBlackhole" type="Sprite" parent="."]
+position = Vector2( 139.5, 96 )
+texture = ExtResource( 14 )
 
 [connection signal="toggled" from="ToggleFullscreen" to="." method="_on_ToggleFullscreen_toggled"]
 [connection signal="pressed" from="ToggleFullscreen/DecreaseScreen" to="." method="_on_ScreenSmaller_pressed"]
