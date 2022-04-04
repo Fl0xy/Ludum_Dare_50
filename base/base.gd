@@ -25,6 +25,8 @@ func _ready():
 	self.blackhole_radius = blackhole_min_radius + (blackhole_max_radius-blackhole_min_radius) / 2
 	Global.set_backhole(self)
 	Global.connect("destroy_blackhole", self, "destory")
+	$exp_ball.mesh.radius = 0.1 #bugfix
+	$exp_ball.mesh.height = 0.1 #bugfix
 	
 
 func set_blackhol_size(value: float):
