@@ -32,9 +32,9 @@ __meta__ = {
 
 [node name="ToggleFullscreen" type="TextureButton" parent="."]
 margin_left = 531.0
-margin_top = 97.0
+margin_top = 80.0
 margin_right = 600.0
-margin_bottom = 153.0
+margin_bottom = 136.0
 toggle_mode = true
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 11 )
@@ -60,17 +60,17 @@ texture_pressed = ExtResource( 6 )
 
 [node name="ExitGame" type="TextureButton" parent="."]
 margin_left = 531.0
-margin_top = 40.0
+margin_top = 23.0
 margin_right = 600.0
-margin_bottom = 96.0
+margin_bottom = 79.0
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 3 )
 
 [node name="PlayGame" type="TextureButton" parent="."]
 margin_left = 398.0
-margin_top = 40.0
+margin_top = 23.0
 margin_right = 530.0
-margin_bottom = 96.0
+margin_bottom = 79.0
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 5 )
 

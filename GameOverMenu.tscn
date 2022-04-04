@@ -25,9 +25,9 @@ __meta__ = {
 
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 531.0
-margin_top = 40.0
+margin_top = 23.0
 margin_right = 600.0
-margin_bottom = 96.0
+margin_bottom = 79.0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 2 )
 
@@ -63,15 +63,15 @@ grow_vertical = 2
 
 [node name="Timescore" type="Label" parent="VBoxContainer"]
 margin_right = 414.0
-margin_bottom = 24.0
+margin_bottom = 16.0
 custom_fonts/font = ExtResource( 9 )
 text = "Timescore:"
 align = 1
 
 [node name="Time" type="Label" parent="VBoxContainer"]
-margin_top = 28.0
+margin_top = 20.0
 margin_right = 414.0
-margin_bottom = 52.0
+margin_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = ExtResource( 9 )
