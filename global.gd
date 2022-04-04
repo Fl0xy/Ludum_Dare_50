@@ -3,6 +3,7 @@ extends Node
 var endPackedScene : PackedScene = load("res://GameOverMenu.tscn")
 var gamePackedscene : PackedScene = load("res://gameUI.tscn")
 var gamescene
+var camera
 
 const blackhole_max_mass: float = 1000.0
 const blackhole_min_mass: float = 50.0
@@ -10,7 +11,7 @@ const blackhole_start_mass: float = 500.0
 
 var blackhole_mass: float setget set_blackhole_mass
 var blackhole_node: Node
-var energy: float # debug todo remove
+var blackhole_factor: float setget set_blackhole_factor
 
 const battery_max: float = 2000.0
 var battery: float = 1950
@@ -21,6 +22,7 @@ var running: bool = false
 var total_time
 var start_time
 
+var energy: float # debug todo remove
 var debug_mass_lose: float = 0
 
 signal destroy_blackhole
@@ -39,6 +41,7 @@ func _process(delta):
 	
 	if blackhole_mass < blackhole_min_mass:
 		emit_signal("destroy_blackhole")
+		running = false
 		
 	battery -= civ_power * delta
 	battery += energy
@@ -48,7 +51,6 @@ func _process(delta):
 			print("jump!!!!")
 			gamescene.queue_free()
 			start_level()
-			
 	
 	
 
@@ -91,13 +93,22 @@ func add_mass_to_blackhole(asteroid: Asteroid):
 	self.blackhole_mass = clamp(blackhole_mass + mass, 0, blackhole_max_mass-1)  
 	print("lost since last: " + str(debug_mass_lose) + "; Added just now: " + str(mass) + " => " + str(mass + debug_mass_lose))
 	debug_mass_lose = 0
+	camera.add_shake(5)
 	
 func set_blackhole_mass(value: float):
 	blackhole_mass = value
-	if blackhole_node != null:
-		blackhole_node.blackhole_radius = blackhole_node.blackhole_max_radius / blackhole_max_mass * blackhole_mass
+	self.blackhole_factor = clamp((blackhole_mass - blackhole_min_mass) / (blackhole_max_mass- blackhole_min_mass),0,1)
+		
+func set_blackhole_factor(value: float):
+	if blackhole_factor > 0.2 && value < 0.2:
+		display_notification("The Blackhole is getting to small\nFeed it or we are dommed")
+	blackhole_factor = value
 		
 		
 func _input(event):
 	if event.is_action("quit"):
 		get_tree().quit()
+		
+func display_notification(text: String):
+	print("Displaying: " + text)
+	gamescene.display_notification(text)

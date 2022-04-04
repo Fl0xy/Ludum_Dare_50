@@ -3,6 +3,9 @@ extends RigidBody
 var connected: bool = false
 var connected_asteroid: Node
 
+func _ready():
+	Global.connect("destroy_blackhole", self, "on_destory")
+
 func _physics_process(delta):
 	var basis = global_transform.basis
 	
@@ -50,12 +53,14 @@ func _physics_process(delta):
 			$PinJoint.set_node_b(connected_asteroid.get_path())
 			$PinJoint2.set_node_b(connected_asteroid.get_path())
 			connected = true;
+			$connect.play()
 		elif connected:
 			$PinJoint.set_node_a(NodePath(""))
 			$PinJoint2.set_node_a(NodePath(""))
 			$PinJoint.set_node_b(NodePath(""))
 			$PinJoint2.set_node_b(NodePath(""))
 			connected = false;
+			$disconnect.play()
 
 
 
@@ -67,3 +72,5 @@ func _on_grabber_body_exited(body: Node):
 	if (connected_asteroid == body):
 		connected_asteroid = null
 
+func on_destory():
+	$Listener.clear_current()

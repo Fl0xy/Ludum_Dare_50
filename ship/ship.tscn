@@ -1,9 +1,11 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://ship/ship.gd" type="Script" id=1]
 [ext_resource path="res://ship/thruster.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/drone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resource/sounds/thrusters_sustain.ogg" type="AudioStream" id=4]
+[ext_resource path="res://resource/sounds/disconnect.wav" type="AudioStream" id=5]
+[ext_resource path="res://resource/sounds/connect.wav" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=17]
 length = 0.001
@@ -316,7 +318,7 @@ axis_lock_angular_z = true
 script = ExtResource( 1 )
 
 [node name="Listener" type="Listener" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3508, 0, 0 )
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 1.3508, 0, 0 )
 current = true
 
 [node name="AnimSideThruster" type="AnimationPlayer" parent="."]
@@ -366,7 +368,7 @@ omni_attenuation = 2.0
 
 [node name="audio" type="AudioStreamPlayer" parent="thruster_back"]
 stream = ExtResource( 4 )
-volume_db = -8.0
+volume_db = -10.0
 
 [node name="thruster_boost" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9445, 0, 0 )
@@ -438,7 +440,7 @@ omni_attenuation = 2.0
 
 [node name="audio" type="AudioStreamPlayer" parent="thruster_front"]
 stream = ExtResource( 4 )
-volume_db = -15.0
+volume_db = -20.0
 
 [node name="thruster_left1" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
@@ -463,7 +465,7 @@ omni_attenuation = 2.0
 
 [node name="audio" type="AudioStreamPlayer" parent="thruster_left1"]
 stream = ExtResource( 4 )
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="thruster_left2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1 )
@@ -508,7 +510,7 @@ omni_attenuation = 2.0
 
 [node name="audio" type="AudioStreamPlayer" parent="thruster_right1"]
 stream = ExtResource( 4 )
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="thruster_right2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
@@ -597,6 +599,14 @@ shape = SubResource( 13 )
 [node name="SpotLight2" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.06681, 0 )
 visible = false
+
+[node name="connect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -20.0
+
+[node name="disconnect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
 
 [connection signal="body_entered" from="grabber" to="." method="_on_grabber_body_entered"]
 [connection signal="body_exited" from="grabber" to="." method="_on_grabber_body_exited"]

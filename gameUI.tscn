@@ -1,15 +1,38 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://main3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameui/battery_bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameui/blackhole_bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/beef'd custom 15.tres" type="DynamicFont" id=4]
+[ext_resource path="res://gameUI.gd" type="Script" id=5]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
 
+[sub_resource type="Animation" id=2]
+length = 0.001
+
+[sub_resource type="Animation" id=3]
+resource_name = "in"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Label:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 2.79397e-07, 1 )
+}
+
 [node name="gameUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 180.0 ],
+"_edit_vertical_guides_": [ 320.0 ]
+}
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 640, 360 )
@@ -29,3 +52,31 @@ blackhole_size = 20.0
 [node name="battery_bar" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8, 43 )
 battery = 50.0
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, -1.08962e-09 )
+margin_left = 106.0
+margin_top = 78.0
+margin_right = 535.0
+margin_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Hallo World long sting has to LOOOOONG"
+align = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/RESET = SubResource( 2 )
+anims/in = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
