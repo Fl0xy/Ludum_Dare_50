@@ -3,7 +3,7 @@ extends Node2D
 export var time_label : NodePath
 
 func _ready():
-	get_node(time_label).text = str(Global.total_time) + "sec"
+	get_node(time_label).text = str(Global.total_time) + " sec"
 
 
 func _on_Exit_pressed():
