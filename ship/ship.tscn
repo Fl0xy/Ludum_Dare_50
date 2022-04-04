@@ -433,6 +433,12 @@ shadow_enabled = true
 spot_range = 50.0
 spot_angle = 30.0
 
+[node name="SpotLight3" type="SpotLight" parent="."]
+transform = Transform( -3.8288e-08, 0.482442, -0.875928, 2.10882e-08, 0.875928, 0.482442, 1, 0, -4.37114e-08, 2.13202, -0.447568, 0 )
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 30.0
+
 [node name="drone" parent="." instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
 
