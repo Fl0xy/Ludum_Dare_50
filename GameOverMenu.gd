@@ -18,7 +18,5 @@ func _on_BackToMainMenu_pressed():
 
 
 func _on_Retry_pressed():
-	var gamescene : PackedScene = load("res://gameUI.tscn")
-	var game = gamescene.instance()
-	get_tree().root.add_child(game)
+	Global.start_game()
 	queue_free()

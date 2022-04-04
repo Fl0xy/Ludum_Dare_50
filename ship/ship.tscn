@@ -302,6 +302,10 @@ light_energy = 4.0
 light_cull_mask = 4294966783
 shadow_enabled = true
 
+[node name="thruster_boost" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9445, 0, 0 )
+thruster_vector = Vector3( 5, 0, 0 )
+
 [node name="thruster_front" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12675, 0, 0 )
 thruster_vector = Vector3( -0.5, 0, 0 )
