@@ -1,7 +1,7 @@
 extends Spatial
 
 
-export(float) var blackhole_min_radius: float = 7
+export(float) var blackhole_min_radius: float = 4
 export(float) var blackhole_max_radius: float = 25
 export(float) var blackhole_radius: float setget set_blackhol_size
 export(bool) var destorying: bool = false
@@ -16,7 +16,7 @@ func _process(delta):
 	else:
 		$blackhole/black_hole.rotate(Vector3(0,1,0), 0.5*delta)
 		$station.rotate(Vector3(0,1,0), -0.01*delta)
-	
+		
 		self.blackhole_radius = blackhole_min_radius + Global.blackhole_factor * (blackhole_max_radius - blackhole_min_radius)
 	
 
