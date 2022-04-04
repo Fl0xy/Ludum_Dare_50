@@ -1,27 +1,26 @@
 extends Node2D
 
 const width = 200
+var pluseC: float = 0
 
-export(float) var max_civ_energy: float = 1000
-export(float) var civ_energy: float = 500 setget set_civ_energy
-
-export(float) var blackhole_size: float = 0.5 setget set_blackhole_size
-
-func _ready():
-	set_civ_energy(civ_energy)
-	set_blackhole_size(blackhole_size)
-	
 func _process(delta):
-	self.blackhole_size = 1 - Global.blackhole_factor
-	self.civ_energy = Global.civ_power
-
-
-func set_civ_energy(value: float):
-	civ_energy = value
-	var posx = width / max_civ_energy * civ_energy
-	$civ_energy.position = Vector2(posx, -2)
+	set_blackhole_size(1 - Global.blackhole_factor)
+	self.pluseC = fmod((self.pluseC + delta),  2)
+	var ma = (abs(1-pluseC) * -1)+1
+	$warning_tosmall.modulate.a = ma
+	$warning_tobig.modulate.a = ma
 	
 func set_blackhole_size(value: float):
-	blackhole_size = value
-	var posx = width * blackhole_size
+	if value < 0.2:
+		$warning_tosmall.visible = true
+	else:
+		$warning_tosmall.visible = false
+		
+	if value > 0.8:
+		$warning_tobig.visible = true
+	else:
+		$warning_tobig.visible = false
+	
+	var posx = width * value
 	$bar.scale = Vector2(posx, 25)
+	$warning_tobig.position.x = posx - $warning_tobig.texture.get_width()

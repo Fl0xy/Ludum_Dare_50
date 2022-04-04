@@ -47,7 +47,6 @@ centered = false
 
 [node name="blackhole_bar" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8, 8 )
-blackhole_size = 20.0
 
 [node name="battery_bar" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8, 43 )

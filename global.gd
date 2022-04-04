@@ -8,7 +8,10 @@ var camera
 const blackhole_max_mass: float = 1000.0
 const blackhole_min_mass: float = 50.0
 const blackhole_start_mass: float = 500.0
+const blackhole_min_power: float = 1.5
+const blackhole_max_power: float = 4.0
 
+var blackhole_energy: float
 var blackhole_mass: float setget set_blackhole_mass
 var blackhole_node: Node
 var blackhole_factor: float setget set_blackhole_factor
@@ -16,13 +19,12 @@ var blackhole_factor: float setget set_blackhole_factor
 const battery_max: float = 2000.0
 var battery: float = 200
 
-var civ_power: float = 0
+var civ_power: float = 2
 
 var running: bool = false
 var total_time
 var start_time
 
-var energy: float # debug todo remove
 var debug_mass_lose: float = 0
 
 signal destroy_blackhole
@@ -34,7 +36,8 @@ func _process(delta):
 	if not running:
 		return
 	
-	energy = clamp((blackhole_max_mass - blackhole_mass) * 0.005, 1.5, 4) * delta
+	blackhole_energy = clamp((blackhole_max_mass - blackhole_mass) * 0.005, blackhole_min_power, blackhole_max_power)
+	var energy = blackhole_energy * delta
 	
 	self.blackhole_mass -= energy
 	debug_mass_lose -= energy
