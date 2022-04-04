@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/blackhole_explosion.wav-8cc4f10f0913c85db13fa4f2af2d8473.sample"
+
+[deps]
+
+source_file="res://resource/sounds/blackhole_explosion.wav"
+dest_files=[ "res://.import/blackhole_explosion.wav-8cc4f10f0913c85db13fa4f2af2d8473.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

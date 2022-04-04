@@ -5,7 +5,7 @@
 [ext_resource path="res://resource/station.glb" type="PackedScene" id=3]
 [ext_resource path="res://assets/black_hole/BlackHoleParticles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resource/sounds/blackhole.ogg" type="AudioStream" id=5]
-[ext_resource path="res://resource/sounds/blackhole_explosion.ogg" type="AudioStream" id=6]
+[ext_resource path="res://resource/sounds/blackhole_explosion.wav" type="AudioStream" id=6]
 
 [sub_resource type="SphereShape" id=4]
 radius = 3.0
@@ -208,7 +208,7 @@ flags_unshaded = true
 [sub_resource type="SphereMesh" id=9]
 material = SubResource( 8 )
 radius = 0.001
-height = 1.0
+height = 0.001
 
 [node name="base" type="Spatial"]
 script = ExtResource( 1 )
@@ -237,7 +237,7 @@ skeleton = NodePath("../..")
 material/0 = null
 
 [node name="black_hole" parent="blackhole" instance=ExtResource( 2 )]
-transform = Transform( 0.5, -8.74228e-08, 8.74228e-08, 8.74228e-08, 0.5, 0, -8.74228e-08, 1.52855e-14, 0.5, 0, 0, 0 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
 
 [node name="gravitypull" type="Area" parent="."]
 collision_layer = 8

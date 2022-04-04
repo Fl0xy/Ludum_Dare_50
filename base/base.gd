@@ -29,8 +29,6 @@ func _ready():
 
 func set_blackhol_size(value: float):
 	blackhole_radius = value
-	#$blackhole/MeshInstance.mesh.radius = value
-	#$blackhole/MeshInstance.mesh.height = value*2
 	$blackhole/black_hole.scale = value * Vector3(1,1,1)
 	$blackhole/CollisionShape.shape.radius = value
 	

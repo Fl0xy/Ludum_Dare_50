@@ -14,7 +14,7 @@ var blackhole_node: Node
 var blackhole_factor: float setget set_blackhole_factor
 
 const battery_max: float = 2000.0
-var battery: float = 1950
+var battery: float = 200
 
 var civ_power: float = 0
 
@@ -93,7 +93,6 @@ func add_mass_to_blackhole(asteroid: Asteroid):
 	self.blackhole_mass = clamp(blackhole_mass + mass, 0, blackhole_max_mass-1)  
 	print("lost since last: " + str(debug_mass_lose) + "; Added just now: " + str(mass) + " => " + str(mass + debug_mass_lose))
 	debug_mass_lose = 0
-	camera.add_shake(5)
 	
 func set_blackhole_mass(value: float):
 	blackhole_mass = value

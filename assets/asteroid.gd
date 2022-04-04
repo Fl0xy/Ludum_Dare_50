@@ -10,7 +10,7 @@ func _ready():
 	var sizef: float = rand_range(min_size, max_size)
 	$Icosphere.scale = sizef * Vector3(1,1,1)
 	$CollisionShape.scale = sizef * Vector3(1,1,1)
-	self.mass = self.mass * sizef * energy_mass_multiplyer
+	self.mass = self.mass * pow(sizef, 4)
 	self.angular_velocity = Vector3(0, rand_range(0, max_rotate), 0)
 	
 func get_class(): return "Asteroid"

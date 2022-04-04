@@ -45,7 +45,7 @@ points = PoolVector3Array( 0.580024, 0.348664, 0.517855, -0.0282965, -0.259462, 
 [node name="darkbrown_asteroid" type="RigidBody"]
 collision_layer = 9
 collision_mask = 9
-mass = 15.0
+mass = 2.0
 axis_lock_linear_y = true
 script = ExtResource( 1 )
 min_size = 2.0
