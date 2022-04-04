@@ -71,7 +71,7 @@ anims/RESET = SubResource( 2 )
 anims/in = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 12.0
 one_shot = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

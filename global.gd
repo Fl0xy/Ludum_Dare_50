@@ -19,11 +19,13 @@ var blackhole_factor: float setget set_blackhole_factor
 const battery_max: float = 2000.0
 var battery: float = 200
 
-var civ_power: float = 2
-
 var running: bool = false
 var total_time
 var start_time
+
+var to_small_warining_given: bool = false
+var to_big_warining_given: bool = false
+var back_to_base_given: bool = false
 
 var debug_mass_lose: float = 0
 
@@ -46,10 +48,12 @@ func _process(delta):
 		emit_signal("destroy_blackhole")
 		running = false
 		
-	battery -= civ_power * delta
 	battery += energy
 	
 	if battery >= battery_max:
+		if not back_to_base_given:
+			display_notification("The Battery is full \n good job now get your ass back to base")
+			back_to_base_given = true
 		if Input.is_action_just_pressed("ui_jump"):
 			print("jump!!!!")
 			gamescene.queue_free()
@@ -102,8 +106,12 @@ func set_blackhole_mass(value: float):
 	self.blackhole_factor = clamp((blackhole_mass - blackhole_min_mass) / (blackhole_max_mass- blackhole_min_mass),0,1)
 		
 func set_blackhole_factor(value: float):
-	if blackhole_factor > 0.2 && value < 0.2:
-		display_notification("The Blackhole is getting to small\nFeed it or we are dommed")
+	if blackhole_factor > 0.2 && value < 0.2 && not to_small_warining_given:
+		display_notification("The blackhole is getting to small Feed it or we are dommed")
+		to_small_warining_given = true
+	if blackhole_factor < 0.8 && value > 0.8 && not to_big_warining_given:
+		display_notification("The blackhole is getting to large \n Be careful or the station gets destoryed")
+		to_big_warining_given = true
 	blackhole_factor = value
 		
 		
