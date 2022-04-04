@@ -53,12 +53,14 @@ func _physics_process(delta):
 			$PinJoint.set_node_b(connected_asteroid.get_path())
 			$PinJoint2.set_node_b(connected_asteroid.get_path())
 			connected = true;
+			$connect.play()
 		elif connected:
 			$PinJoint.set_node_a(NodePath(""))
 			$PinJoint2.set_node_a(NodePath(""))
 			$PinJoint.set_node_b(NodePath(""))
 			$PinJoint2.set_node_b(NodePath(""))
 			connected = false;
+			$disconnect.play()
 
 
 
