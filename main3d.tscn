@@ -77,8 +77,6 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="base" parent="." instance=ExtResource( 5 )]
-blackhole_min_radius = 10.0
-blackhole_max_radius = 28.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )

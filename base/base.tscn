@@ -207,12 +207,11 @@ flags_unshaded = true
 
 [sub_resource type="SphereMesh" id=9]
 material = SubResource( 8 )
-radius = 0.1
-height = 0.1
+radius = 0.001
+height = 0.001
 
 [node name="base" type="Spatial"]
 script = ExtResource( 1 )
-blackhole_min_radius = 4.0
 
 [node name="CSGTorus" type="CSGTorus" parent="."]
 visible = false

@@ -74,3 +74,4 @@ func _on_grabber_body_exited(body: Node):
 
 func on_destory():
 	$Listener.clear_current()
+	self.visible = false
