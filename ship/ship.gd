@@ -12,12 +12,14 @@ func _physics_process(delta):
 	$thruster_left2/exhaust.visible = false
 	$thruster_right1/exhaust.visible = false
 	$thruster_right2/exhaust.visible = false
+	$thruster_boost/exhaust.visible = false
 	
 	if Input.is_action_pressed("ui_up"):
 		apply_impulse(basis.xform($thruster_back.translation), basis.xform($thruster_back.thruster_vector))
 		$thruster_back/exhaust.visible = true
 		if Input.is_action_pressed("ui_boost"):
 			apply_impulse(basis.xform($thruster_boost.translation), basis.xform($thruster_boost.thruster_vector))	
+			$thruster_boost/exhaust.visible = true
 	if Input.is_action_pressed("ui_right"):
 		apply_impulse(basis.xform($thruster_right1.translation), basis.xform($thruster_right1.thruster_vector))
 		apply_impulse(basis.xform($thruster_right2.translation), basis.xform($thruster_right2.thruster_vector))

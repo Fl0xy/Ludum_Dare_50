@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://ship/ship.gd" type="Script" id=1]
 [ext_resource path="res://ship/thruster.tscn" type="PackedScene" id=2]
@@ -196,6 +196,38 @@ tracks/1/keys = {
 "values": [ Vector3( 0.25, 0.25, 0.25 ), Vector3( 0.25, 0.35, 0.25 ) ]
 }
 
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../thruster_boost/exhaust:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.82836, 2.03131, 1.82836 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "back_thruster_boosting"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../thruster_boost/exhaust:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.82836, 2.03131, 1.82836 ), Vector3( 2.11892, 2.26779, 2.11892 ) ]
+}
+
 [sub_resource type="SpatialMaterial" id=21]
 flags_do_not_receive_shadows = true
 flags_disable_ambient_light = true
@@ -208,6 +240,23 @@ emission_on_uv2 = false
 [sub_resource type="SphereMesh" id=14]
 material = SubResource( 21 )
 radius = 0.5
+radial_segments = 8
+rings = 6
+is_hemisphere = true
+
+[sub_resource type="SpatialMaterial" id=25]
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+emission_enabled = true
+emission = Color( 0.403922, 1, 0.321569, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=22]
+material = SubResource( 25 )
+radius = 0.5
+height = 2.599
 radial_segments = 8
 rings = 6
 is_hemisphere = true
@@ -283,13 +332,18 @@ autoplay = "thruster_front_running"
 anims/RESET = SubResource( 19 )
 anims/thruster_front_running = SubResource( 20 )
 
+[node name="AnimBoostThruster" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimBackThruster")
+autoplay = "back_thruster_boosting"
+anims/RESET = SubResource( 23 )
+anims/back_thruster_boosting = SubResource( 24 )
+
 [node name="thruster_back" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9445, 0, 0 )
 thruster_vector = Vector3( 2, 0, 0 )
 
 [node name="exhaust" type="MeshInstance" parent="thruster_back"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.473911, -0.0053401, 0 )
-visible = false
 layers = 512
 mesh = SubResource( 14 )
 skeleton = NodePath("../..")
@@ -301,10 +355,38 @@ light_color = Color( 0.662745, 1, 0.670588, 1 )
 light_energy = 4.0
 light_cull_mask = 4294966783
 shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="thruster_boost" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9445, 0, 0 )
 thruster_vector = Vector3( 5, 0, 0 )
+
+[node name="exhaust" type="Spatial" parent="thruster_boost"]
+transform = Transform( -7.99203e-08, -2.03131, 0, 1.82836, -8.87912e-08, 0, 0, 0, 1.82836, -0.450281, -0.0053401, 0 )
+
+[node name="part1" type="MeshInstance" parent="thruster_boost/exhaust"]
+transform = Transform( 0.712716, 2.84217e-14, 0, 8.88178e-15, 0.703259, 0, 0, 0, 0.712716, -0.00485543, 0.345612, -0.0016394 )
+layers = 512
+mesh = SubResource( 22 )
+skeleton = NodePath("../../..")
+material/0 = null
+
+[node name="part2" type="MeshInstance" parent="thruster_boost/exhaust"]
+transform = Transform( 0.6764, -3.57468e-08, -5.91328e-08, -1.02134e-07, -0.23674, 6.56963e-08, -5.91328e-08, -2.29937e-08, -0.6764, -0.00460802, 0.332412, -0.00155587 )
+layers = 512
+mesh = SubResource( 22 )
+skeleton = NodePath("../../..")
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="thruster_boost/exhaust"]
+transform = Transform( 0.546937, 7.10543e-15, 0, -3.55271e-15, 0.492294, 0, 0, 0, 0.546937, 0.498827, 1.47452, 0 )
+light_color = Color( 0.662745, 1, 0.670588, 1 )
+light_energy = 4.0
+light_cull_mask = 4294966783
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="thruster_front" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12675, 0, 0 )
@@ -312,7 +394,6 @@ thruster_vector = Vector3( -0.5, 0, 0 )
 
 [node name="exhaust" type="Spatial" parent="thruster_front"]
 transform = Transform( 3.09086e-08, 0.707107, -0.707107, 1, -4.37114e-08, 0, -3.09086e-08, -0.707107, -0.707107, -0.440377, 0, -1.08798 )
-visible = false
 
 [node name="exhaust1" type="MeshInstance" parent="thruster_front/exhaust"]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
@@ -326,6 +407,8 @@ transform = Transform( 4, 1.42109e-14, 0, 0, 4, 0, 0, 0, 4, 4.45856, 0.636596, 0
 light_color = Color( 0.662745, 1, 0.670588, 1 )
 light_cull_mask = 4294966783
 shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="exhaust2" type="MeshInstance" parent="thruster_front/exhaust"]
 transform = Transform( 0.25, -1.09279e-08, -4.77674e-16, 0, -1.09278e-08, 0.25, -1.09279e-08, -0.25, -1.09278e-08, -6.72958e-08, -1.53954, -1.53954 )
@@ -339,6 +422,8 @@ transform = Transform( 4, -2.66976e-14, 2.66976e-14, 2.5861e-14, 4, 0, -2.5861e-
 light_color = Color( 0.662745, 1, 0.670588, 1 )
 light_cull_mask = 4294966783
 shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="thruster_left1" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
@@ -346,7 +431,6 @@ thruster_vector = Vector3( 0, 0, -0.5 )
 
 [node name="exhaust" type="MeshInstance" parent="thruster_left1"]
 transform = Transform( 9.55343e-16, 2.18557e-08, 0.5, 0.5, -2.18557e-08, 1.05879e-22, 2.18557e-08, 0.5, -2.18557e-08, -0.00918913, -0.0053401, 0.6 )
-visible = false
 layers = 512
 mesh = SubResource( 14 )
 skeleton = NodePath("../..")
@@ -358,6 +442,8 @@ light_color = Color( 0.662745, 1, 0.670588, 1 )
 light_energy = 2.0
 light_cull_mask = 4294966783
 shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="thruster_left2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1 )
@@ -365,7 +451,6 @@ thruster_vector = Vector3( 0, 0, -0.5 )
 
 [node name="exhaust" type="MeshInstance" parent="thruster_left2"]
 transform = Transform( 9.55343e-16, 2.18557e-08, 0.5, 0.5, -2.18557e-08, 1.05879e-22, 2.18557e-08, 0.5, -2.18557e-08, 3.23057e-05, -0.0053401, 0.6 )
-visible = false
 layers = 512
 mesh = SubResource( 14 )
 skeleton = NodePath("../..")
@@ -377,6 +462,8 @@ light_color = Color( 0.662745, 1, 0.670588, 1 )
 light_energy = 2.0
 light_cull_mask = 4294966783
 shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="thruster_right1" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1 )
@@ -384,7 +471,6 @@ thruster_vector = Vector3( 0, 0, 0.5 )
 
 [node name="exhaust" type="MeshInstance" parent="thruster_right1"]
 transform = Transform( 9.55343e-16, 2.18557e-08, -0.5, 0.5, -2.18557e-08, -1.05879e-22, -2.18557e-08, -0.5, -2.18557e-08, -0.00547314, -0.0053401, -0.6 )
-visible = false
 layers = 512
 mesh = SubResource( 14 )
 skeleton = NodePath("../..")
@@ -396,6 +482,8 @@ light_color = Color( 0.662745, 1, 0.670588, 1 )
 light_energy = 2.0
 light_cull_mask = 4294966783
 shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="thruster_right2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
@@ -403,18 +491,19 @@ thruster_vector = Vector3( 0, 0, 0.5 )
 
 [node name="exhaust" type="MeshInstance" parent="thruster_right2"]
 transform = Transform( 9.55343e-16, 2.18557e-08, -0.5, 0.5, -2.18557e-08, -1.05879e-22, -2.18557e-08, -0.5, -2.18557e-08, 0.00464308, -0.0053401, -0.6 )
-visible = false
 layers = 512
 mesh = SubResource( 14 )
 skeleton = NodePath("../..")
 material/0 = null
 
 [node name="OmniLight" type="OmniLight" parent="thruster_right2/exhaust"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1.97982, -1.66893e-06, 0.0262517 )
+transform = Transform( 2, 0, 0, 0, 1.81271, 0, 0, 0, 2, 1.97982, -1.66893e-06, 0.0262519 )
 light_color = Color( 0.662745, 1, 0.670588, 1 )
 light_energy = 2.0
 light_cull_mask = 4294966783
 shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="grabber" type="Area" parent="."]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.25, 0, 0.75 )
