@@ -59,7 +59,7 @@ __meta__ = {
 }
 
 [node name="Particles" type="Particles" parent="cc/Camera"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 8.35188e-23, 2.03644e-29, 0, 1, 5.3759e-20, 1.40163e-06, -32.0656 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 8.35188e-23, 0, 0, 1, 8.85471e-20, 2.3683e-06, -54.1803 )
 amount = 512
 lifetime = 10.0
 preprocess = 10.0
