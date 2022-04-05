@@ -5,6 +5,7 @@ var connected_asteroid: Node
 
 func _ready():
 	Global.connect("destroy_blackhole", self, "on_destory")
+	Global.player = self
 
 func _physics_process(delta):
 	var basis = global_transform.basis

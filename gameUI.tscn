@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://main3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameui/battery_bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameui/blackhole_bar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/beef'd custom 15.tres" type="DynamicFont" id=4]
 [ext_resource path="res://gameUI.gd" type="Script" id=5]
+[ext_resource path="res://gameui/jump.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
@@ -77,5 +78,8 @@ one_shot = true
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="jump" parent="." instance=ExtResource( 6 )]
+position = Vector2( 472, 18 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
