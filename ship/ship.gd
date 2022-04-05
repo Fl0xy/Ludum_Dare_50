@@ -88,3 +88,12 @@ func destory():
 
 func _on_explode_finished():
 	Global.end_game()
+
+
+func _on_ship_body_entered(body):
+	pass #TODO
+	#if body.get_class() == "Asteroid":
+		#if randi() % 2 == 0:
+			#$collisionSound1.play()
+		#else:
+			#$collisionSound2.play()

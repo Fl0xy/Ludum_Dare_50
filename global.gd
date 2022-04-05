@@ -31,6 +31,7 @@ var back_to_base_given: bool = false
 var debug_mass_lose: float = 0
 
 signal destroy_blackhole
+signal destroy_base
 
 func _ready():
 	pass
@@ -98,7 +99,11 @@ func close_level():
 	
 func add_mass_to_blackhole(asteroid: Asteroid):
 	var mass = asteroid.mass * asteroid.energy_mass_multiplyer
-	self.blackhole_mass = clamp(blackhole_mass + mass, 0, blackhole_max_mass-1)  
+	self.blackhole_mass = clamp(blackhole_mass + mass, 0, blackhole_max_mass)  
+	if blackhole_mass == blackhole_max_mass:
+		print("to big destoying base")
+		emit_signal("destroy_base")
+		running = false
 	print("lost since last: " + str(debug_mass_lose) + "; Added just now: " + str(mass) + " [" + str(asteroid.mass) +  "x" + str(asteroid.energy_mass_multiplyer)  + "] => " + str(mass + debug_mass_lose))
 	debug_mass_lose = 0
 	
