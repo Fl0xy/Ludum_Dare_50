@@ -1,0 +1,138 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://resource/black_hole.glb" type="PackedScene" id=1]
+[ext_resource path="res://assets/black_hole/BlackHoleParticles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resource/station.glb" type="PackedScene" id=3]
+[ext_resource path="res://assets/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://TitleScreen.gd" type="Script" id=5]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_energy = 0.0
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("station:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "rotate"
+length = 200.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("station:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 200 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -360, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("black_hole:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "rotation"
+length = 20.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("black_hole:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="ViewportTexture" id=7]
+viewport_path = NodePath("Viewport2")
+
+[node name="TitleScreen" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 51.0292, 0 )
+projection = 1
+current = true
+size = 50.0
+
+[node name="station" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.00961, 0, 0, 0, 1.00961, 0, 0, 0, 1.00961, 0, 0, 34 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="station"]
+root_node = NodePath("../..")
+autoplay = "rotate"
+anims/RESET = SubResource( 2 )
+anims/rotate = SubResource( 3 )
+
+[node name="black_hole" parent="." instance=ExtResource( 1 )]
+transform = Transform( 15.0065, 0, 0, 0, 15.0065, 0, 0, 0, 15.0065, 0, 0, 34 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="black_hole"]
+root_node = NodePath("../..")
+autoplay = "rotation"
+anims/RESET = SubResource( 4 )
+anims/rotation = SubResource( 5 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 512, 512 )
+transparent_bg = true
+
+[node name="BlackHoleParticles" parent="Viewport" instance=ExtResource( 2 )]
+
+[node name="disk" type="Sprite3D" parent="."]
+transform = Transform( 21.0425, 0, 0, 0, -9.19798e-07, -0.42085, 0, 21.0425, -1.8396e-08, 0, 0, 34 )
+texture = SubResource( 6 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 23.166, 34 )
+omni_range = 100.0
+omni_attenuation = 2.0
+
+[node name="Viewport2" type="Viewport" parent="."]
+size = Vector2( 128, 128 )
+transparent_bg = true
+
+[node name="Title" parent="Viewport2" instance=ExtResource( 4 )]
+
+[node name="Title" type="Sprite3D" parent="."]
+transform = Transform( 21.46, 0, 0, 0, -9.38046e-07, -21.46, 0, 21.46, -9.38046e-07, 3, 14, -7 )
+texture = SubResource( 7 )
