@@ -2,6 +2,7 @@ extends RigidBody
 
 var connected: bool = false
 var connected_asteroid: Node
+var destoryed: bool = false
 
 func _ready():
 	Global.connect("destroy_blackhole", self, "on_destory")
@@ -17,6 +18,9 @@ func _physics_process(delta):
 	$thruster_right1.visible = false
 	$thruster_right2.visible = false
 	$thruster_boost.visible = false
+	
+	if destoryed:
+		return
 	
 	if Input.is_action_pressed("ui_up"):
 		apply_impulse(basis.xform($thruster_back.translation), basis.xform($thruster_back.thruster_vector))
@@ -76,3 +80,11 @@ func _on_grabber_body_exited(body: Node):
 func on_destory():
 	$Listener.clear_current()
 	self.visible = false
+	
+func destory():
+	destoryed = true
+	$explode.play()
+	$AnimationPlayer.play("explode")
+
+func _on_explode_finished():
+	Global.end_game()

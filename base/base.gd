@@ -41,6 +41,9 @@ func _on_despawner_body_entered(body):
 
 
 func _on_blackhole_body_entered(body):
+	if body == Global.player:
+		body.destory()
+		return
 	if body.get_class() != "Asteroid":
 		return
 	emit_signal("asteroid_entered", body)
