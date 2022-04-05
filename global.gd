@@ -4,6 +4,7 @@ var endPackedScene : PackedScene = load("res://GameOverMenu.tscn")
 var gamePackedscene : PackedScene = load("res://gameUI.tscn")
 var gamescene
 var camera
+var player
 
 const blackhole_max_mass: float = 1000.0
 const blackhole_min_mass: float = 50.0
