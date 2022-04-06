@@ -41,7 +41,8 @@ func set_blackhol_size(value: float):
 
 
 func _on_despawner_body_entered(body):
-	body.queue_free()
+	if body.get_class() == "Asteroid":
+		body.queue_free()
 
 
 func _on_blackhole_body_entered(body):

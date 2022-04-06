@@ -17,8 +17,9 @@ var blackhole_mass: float setget set_blackhole_mass
 var blackhole_node: Node
 var blackhole_factor: float setget set_blackhole_factor
 
+const battery_start: float = 200.0
 const battery_max: float = 2000.0
-var battery: float = 200
+var battery: float
 
 var running: bool = false
 var total_time
@@ -76,6 +77,7 @@ func start_game():
 	running = true
 	
 func start_level():
+	battery = battery_start
 	gamescene = gamePackedscene.instance()
 	get_tree().root.add_child(gamescene)
 
@@ -113,7 +115,7 @@ func set_blackhole_mass(value: float):
 		
 func set_blackhole_factor(value: float):
 	if blackhole_factor > 0.2 && value < 0.2 && not to_small_warining_given:
-		display_notification("The blackhole is getting to small Feed it or we are dommed")
+		display_notification("The blackhole is getting to small Feed it or we are doomed")
 		to_small_warining_given = true
 	if blackhole_factor < 0.8 && value > 0.8 && not to_big_warining_given:
 		display_notification("The blackhole is getting to large \n Be careful or the station gets destoryed")
