@@ -519,14 +519,14 @@ thruster_vector = Vector3( 5, 0, 0 )
 transform = Transform( -7.99201e-08, -2.03131, 0, 1.82836, -8.87914e-08, 0, 0, 0, 1.82836, -0.450281, -0.0053401, 0 )
 
 [node name="part1" type="MeshInstance" parent="thruster_boost/exhaust"]
-transform = Transform( 0.712716, 2.84217e-14, 0, 8.88178e-15, 0.703259, 0, 0, 0, 0.712716, -0.00485543, 0.345612, -0.0016394 )
+transform = Transform( 0.676, -1.05128e-14, 0, 1.01091e-14, 0.703, 0, 0, 0, 0.676, 0, 0.332, 0 )
 layers = 512
 mesh = SubResource( 22 )
 skeleton = NodePath("../../..")
 material/0 = null
 
 [node name="part2" type="MeshInstance" parent="thruster_boost/exhaust"]
-transform = Transform( 0.6764, -3.57468e-08, -5.91328e-08, -1.02134e-07, -0.23674, 6.56963e-08, -5.91328e-08, -2.29937e-08, -0.6764, -0.00460802, 0.332412, -0.00155587 )
+transform = Transform( 0.6764, -3.57467e-08, -1.02134e-07, -1.02134e-07, -0.23674, 6.56963e-08, -1.02134e-07, -2.29937e-08, -0.6764, 0, 0.332, 0 )
 layers = 512
 mesh = SubResource( 22 )
 skeleton = NodePath("../../..")
