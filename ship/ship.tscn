@@ -771,6 +771,12 @@ stream = ExtResource( 9 )
 [node name="collisionSound2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 
+[node name="rocketSpawn" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92074, 0, 0 )
+
+[node name="rocketTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_ship_body_entered"]
 [connection signal="body_entered" from="grabber" to="." method="_on_grabber_body_entered"]
 [connection signal="body_exited" from="grabber" to="." method="_on_grabber_body_exited"]

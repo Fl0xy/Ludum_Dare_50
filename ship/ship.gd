@@ -1,5 +1,7 @@
 extends RigidBody
 
+const rocketScene: PackedScene = preload("res://ship/PushRocket.tscn")
+
 var connected: bool = false
 var connected_asteroid: Node
 var destoryed: bool = false
@@ -26,7 +28,7 @@ func _physics_process(delta):
 		apply_impulse(basis.xform($thruster_back.translation), basis.xform($thruster_back.thruster_vector))
 		$thruster_back.visible = true
 		if Input.is_action_pressed("ui_boost"):
-			apply_impulse(basis.xform($thruster_boost.translation), basis.xform($thruster_boost.thruster_vector))	
+			apply_impulse(basis.xform($thruster_boost.translation), basis.xform($thruster_boost.thruster_vector))
 			$thruster_boost.visible = true
 	if Input.is_action_pressed("ui_right"):
 		apply_impulse(basis.xform($thruster_right1.translation), basis.xform($thruster_right1.thruster_vector))
@@ -66,12 +68,18 @@ func _physics_process(delta):
 			$PinJoint2.set_node_b(NodePath(""))
 			connected = false;
 			$disconnect.play()
+	if Input.is_action_just_pressed("rocket"):
+		if $rocketTimer.is_stopped():
+			var rocket = rocketScene.instance()
+			rocket.global_transform =  $rocketSpawn.global_transform
+			get_parent().add_child(rocket)
+			$rocketTimer.start()
 
 
 
 func _on_grabber_body_entered(body: Node):
-	print(body)
-	connected_asteroid = body
+	if body.get_class() == "Asteroid":
+		connected_asteroid = body
 
 func _on_grabber_body_exited(body: Node):
 	if (connected_asteroid == body):

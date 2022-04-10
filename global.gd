@@ -1,7 +1,7 @@
 extends Node
 
-var endPackedScene : PackedScene = load("res://GameOverMenu.tscn")
-var gamePackedscene : PackedScene = load("res://gameUI.tscn")
+var endPackedScene : PackedScene = preload("res://GameOverMenu.tscn")
+var gamePackedscene : PackedScene = preload("res://gameUI.tscn")
 var gamescene
 var camera
 var player
