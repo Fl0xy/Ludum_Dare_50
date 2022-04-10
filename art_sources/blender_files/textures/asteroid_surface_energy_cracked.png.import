@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/body.png-428a883d28174974c709ff2d30ce477c.stex"
+path="res://.import/asteroid_surface_energy_cracked.png-81c7090019e2dedb49a88c44e066598d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art_sources/blender_files/textures/body.png"
-dest_files=[ "res://.import/body.png-428a883d28174974c709ff2d30ce477c.stex" ]
+source_file="res://art_sources/blender_files/textures/asteroid_surface_energy_cracked.png"
+dest_files=[ "res://.import/asteroid_surface_energy_cracked.png-81c7090019e2dedb49a88c44e066598d.stex" ]
 
 [params]
 

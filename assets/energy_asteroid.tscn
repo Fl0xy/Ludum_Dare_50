@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/asteroid.gd" type="Script" id=1]
+[ext_resource path="res://resource/vertex_snap_shader.tres" type="Material" id=2]
 
 [sub_resource type="Image" id=7]
 data = {
@@ -54,7 +55,7 @@ energy_mass_multiplyer = 8.0
 
 [node name="Icosphere" type="MeshInstance" parent="."]
 mesh = SubResource( 4 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 6 )

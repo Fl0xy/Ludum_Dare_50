@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://art_sources/blender_files/textures/asteroid_surface_energy_cracked.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+render_mode world_vertex_coords;
+
+uniform int test = 1;
+uniform sampler2D albedoTex : hint_albedo;
+
+float snap_to_discrete_point(float f) {
+	const float point_distance = 0.5*0.5*0.5*0.5;
+	int a = int(f / point_distance);
+	f = float(a) * point_distance;
+	return f;
+}
+
+void vertex() {
+	VERTEX.x = snap_to_discrete_point(VERTEX.x);
+	VERTEX.y = snap_to_discrete_point(VERTEX.y);
+	VERTEX.z = snap_to_discrete_point(VERTEX.z);
+}
+
+void fragment()
+{
+	ALBEDO = (COLOR * texture(albedoTex, UV)).rgb;
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/test = 1
+shader_param/albedoTex = ExtResource( 1 )

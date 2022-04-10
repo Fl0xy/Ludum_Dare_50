@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/body.png-428a883d28174974c709ff2d30ce477c.stex"
+path="res://.import/accretion_disk.png-d7f2e373e8a7532167fbaa94f0923c43.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art_sources/blender_files/textures/body.png"
-dest_files=[ "res://.import/body.png-428a883d28174974c709ff2d30ce477c.stex" ]
+source_file="res://art_sources/blender_files/textures/accretion_disk.png"
+dest_files=[ "res://.import/accretion_disk.png-d7f2e373e8a7532167fbaa94f0923c43.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
