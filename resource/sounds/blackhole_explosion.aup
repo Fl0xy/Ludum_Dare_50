@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="no" ?>
 <!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
-<project xmlns="http://audacity.sourceforge.net/xml/" projname="blackhole_explosion_data" version="1.3.0" audacityversion="2.4.1" sel0="0.0000000000" sel1="37.7312708333" vpos="0" h="0.0000000000" zoom="89.6660309331" rate="96000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="blackhole_explosion_data" version="1.3.0" audacityversion="2.4.1" sel0="23.3310204347" sel1="23.3310204347" vpos="0" h="8.0744066896" zoom="89.6660309331" rate="96000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
 	<tags/>
-	<wavetrack name="explosion_underwater_blast_04" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="explosion_underwater_blast_04" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="865137">
 				<waveblock start="0">
@@ -21,7 +21,7 @@
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="explosion_underwater_blast_04" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="explosion_underwater_blast_04" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.00000000" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="865137">
 				<waveblock start="0">
@@ -42,7 +42,7 @@
 	</wavetrack>
 	<wavetrack name="Planet_Explosion_Low-04" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.16729167" colorindex="0">
-			<sequence maxsamples="262144" sampleformat="262159" numsamples="3606142">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1905738">
 				<waveblock start="0">
 					<simpleblockfile filename="eff1f63a.au" len="206648" min="-0.967313" max="0.854041" rms="0.236607"/>
 				</waveblock>
@@ -62,28 +62,10 @@
 					<simpleblockfile filename="eff1fe7d.au" len="262144" min="-0.093429" max="0.072939" rms="0.020888"/>
 				</waveblock>
 				<waveblock start="1517368">
-					<simpleblockfile filename="eff1f06e.au" len="262144" min="-0.053648" max="0.062274" rms="0.014055"/>
+					<simpleblockfile filename="eff1fb93.au" len="194185" min="-0.053648" max="0.062274" rms="0.013922"/>
 				</waveblock>
-				<waveblock start="1779512">
-					<simpleblockfile filename="eff1f7a3.au" len="262144" min="-0.032432" max="0.031103" rms="0.009044"/>
-				</waveblock>
-				<waveblock start="2041656">
-					<simpleblockfile filename="eff1fc76.au" len="262144" min="-0.026344" max="0.028864" rms="0.007656"/>
-				</waveblock>
-				<waveblock start="2303800">
-					<simpleblockfile filename="eff1f5ee.au" len="262144" min="-0.027532" max="0.030624" rms="0.007825"/>
-				</waveblock>
-				<waveblock start="2565944">
-					<simpleblockfile filename="eff1f5b1.au" len="262144" min="-0.021597" max="0.028516" rms="0.005435"/>
-				</waveblock>
-				<waveblock start="2828088">
-					<simpleblockfile filename="eff1f9f3.au" len="262144" min="-0.009507" max="0.013354" rms="0.002809"/>
-				</waveblock>
-				<waveblock start="3090232">
-					<simpleblockfile filename="eff1fc31.au" len="262144" min="-0.004912" max="0.003533" rms="0.000935"/>
-				</waveblock>
-				<waveblock start="3352376">
-					<simpleblockfile filename="eff1f580.au" len="253766" min="-0.001" max="0.00077" rms="0.000077"/>
+				<waveblock start="1711553">
+					<simpleblockfile filename="eff1f5d0.au" len="194185" min="-0.044735" max="0.029489" rms="0.00764"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="1">
@@ -93,7 +75,7 @@
 	</wavetrack>
 	<wavetrack name="Planet_Explosion_Low-04" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="0.16729167" colorindex="0">
-			<sequence maxsamples="262144" sampleformat="262159" numsamples="3606142">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1905738">
 				<waveblock start="0">
 					<simpleblockfile filename="eff1ff2a.au" len="206648" min="-0.821341" max="0.816739" rms="0.203445"/>
 				</waveblock>
@@ -113,28 +95,10 @@
 					<simpleblockfile filename="eff1f0d2.au" len="262144" min="-0.073687" max="0.070461" rms="0.019904"/>
 				</waveblock>
 				<waveblock start="1517368">
-					<simpleblockfile filename="eff1f56c.au" len="262144" min="-0.054582" max="0.054339" rms="0.013606"/>
+					<simpleblockfile filename="eff1f452.au" len="194185" min="-0.050478" max="0.054339" rms="0.013414"/>
 				</waveblock>
-				<waveblock start="1779512">
-					<simpleblockfile filename="eff1fca8.au" len="262144" min="-0.032298" max="0.037148" rms="0.008539"/>
-				</waveblock>
-				<waveblock start="2041656">
-					<simpleblockfile filename="eff1f334.au" len="262144" min="-0.03211" max="0.028803" rms="0.007768"/>
-				</waveblock>
-				<waveblock start="2303800">
-					<simpleblockfile filename="eff1f637.au" len="262144" min="-0.034851" max="0.0269" rms="0.006932"/>
-				</waveblock>
-				<waveblock start="2565944">
-					<simpleblockfile filename="eff1fb5a.au" len="262144" min="-0.030792" max="0.022122" rms="0.006359"/>
-				</waveblock>
-				<waveblock start="2828088">
-					<simpleblockfile filename="eff1f494.au" len="262144" min="-0.010681" max="0.013039" rms="0.003"/>
-				</waveblock>
-				<waveblock start="3090232">
-					<simpleblockfile filename="eff1fa0a.au" len="262144" min="-0.004444" max="0.004917" rms="0.000991"/>
-				</waveblock>
-				<waveblock start="3352376">
-					<simpleblockfile filename="eff1fbdd.au" len="253766" min="-0.000918" max="0.000588" rms="0.000057"/>
+				<waveblock start="1711553">
+					<simpleblockfile filename="eff1f0d8.au" len="194185" min="-0.045314" max="0.027393" rms="0.007384"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="1">
@@ -142,7 +106,7 @@
 			</envelope>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="Planet_Explosion_Low-04" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="Planet_Explosion_Low-04" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="8.03443750" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="1098492">
 				<waveblock start="0">
@@ -164,7 +128,7 @@
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="Planet_Explosion_Low-04" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="Planet_Explosion_Low-04" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="8.03443750" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="1098492">
 				<waveblock start="0">
@@ -186,7 +150,7 @@
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="FarExplosion03" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="FarExplosion03" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="10.26092708" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="573320">
 				<waveblock start="0">
@@ -202,7 +166,7 @@
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="FarExplosion03" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
+	<wavetrack name="FarExplosion03" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
 		<waveclip offset="10.26092708" colorindex="0">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="573320">
 				<waveblock start="0">
