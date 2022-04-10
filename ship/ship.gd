@@ -91,9 +91,14 @@ func _on_explode_finished():
 
 
 func _on_ship_body_entered(body):
-	pass #TODO
-	#if body.get_class() == "Asteroid":
-		#if randi() % 2 == 0:
-			#$collisionSound1.play()
-		#else:
-			#$collisionSound2.play()
+	var volume = 0
+	volume = abs(self.linear_velocity.x)
+	if abs(self.linear_velocity.y) > volume:
+		volume = abs(self.linear_velocity.y)
+	
+	if randi() % 2 == 0:
+		$collisionSound1.volume_db = volume - 10
+		$collisionSound1.play()
+	else:
+		$collisionSound2.volume_db = volume - 10
+		$collisionSound2.play()
