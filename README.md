@@ -1,7 +1,7 @@
 # Heat Death
 
 A game about space, asteroids, your drone and a black hole.  
-Done in 3 days for the 50th Ludum Dare game jam in colaboration with [Akronsus](https://github.com/Akronsus)  
+Done in 3 days for the 50th Ludum Dare game jam in collaboration with [Akronsus](https://github.com/Akronsus)  
 
 ![screenshot of the game Heat Death](resource/screenshot.png)
 
